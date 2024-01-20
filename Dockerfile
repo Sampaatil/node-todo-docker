@@ -1,7 +1,14 @@
+# Base Image with NODE JS
 FROM node:12.2.0-alpine
-WORKDIR app
+
+# Working dir with all code files
+WORKDIR /app
+
+# Copy code from src to dsn
 COPY . .
+
+# Install packages
 RUN npm install
-RUN npm run test
-EXPOSE 8000
+
+# Run container with arguments
 CMD ["node","app.js"]
